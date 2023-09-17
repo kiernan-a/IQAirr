@@ -14,6 +14,9 @@
 		3C6232752AB66F9200EA2562 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232742AB66F9200EA2562 /* Persistence.swift */; };
 		3C6232782AB66F9200EA2562 /* IQAirr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232762AB66F9200EA2562 /* IQAirr.xcdatamodeld */; };
 		3C6232802AB6799600EA2562 /* LocationSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62327F2AB6799600EA2562 /* LocationSearch.swift */; };
+		3C6232832AB67D5F00EA2562 /* AirSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232822AB67D5F00EA2562 /* AirSearchService.swift */; };
+		3C6232852AB67DB000EA2562 /* AirSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232842AB67DB000EA2562 /* AirSearchViewModel.swift */; };
+		3C6232872AB67DE300EA2562 /* AirSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232862AB67DE300EA2562 /* AirSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		3C6232742AB66F9200EA2562 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3C6232772AB66F9200EA2562 /* IQAirr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IQAirr.xcdatamodel; sourceTree = "<group>"; };
 		3C62327F2AB6799600EA2562 /* LocationSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearch.swift; sourceTree = "<group>"; };
+		3C6232822AB67D5F00EA2562 /* AirSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchService.swift; sourceTree = "<group>"; };
+		3C6232842AB67DB000EA2562 /* AirSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchViewModel.swift; sourceTree = "<group>"; };
+		3C6232862AB67DE300EA2562 /* AirSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 		3C62326A2AB66F9100EA2562 /* IQAirr */ = {
 			isa = PBXGroup;
 			children = (
+				3C6232812AB67D3E00EA2562 /* AirSearch */,
 				3C62327E2AB6795B00EA2562 /* Models */,
 				3C62326B2AB66F9100EA2562 /* IQAirrApp.swift */,
 				3C62326D2AB66F9100EA2562 /* ContentView.swift */,
@@ -82,6 +89,16 @@
 				3C62327F2AB6799600EA2562 /* LocationSearch.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3C6232812AB67D3E00EA2562 /* AirSearch */ = {
+			isa = PBXGroup;
+			children = (
+				3C6232822AB67D5F00EA2562 /* AirSearchService.swift */,
+				3C6232842AB67DB000EA2562 /* AirSearchViewModel.swift */,
+				3C6232862AB67DE300EA2562 /* AirSearchView.swift */,
+			);
+			path = AirSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,8 +174,11 @@
 				3C6232802AB6799600EA2562 /* LocationSearch.swift in Sources */,
 				3C6232752AB66F9200EA2562 /* Persistence.swift in Sources */,
 				3C62326E2AB66F9100EA2562 /* ContentView.swift in Sources */,
+				3C6232872AB67DE300EA2562 /* AirSearchView.swift in Sources */,
 				3C62326C2AB66F9100EA2562 /* IQAirrApp.swift in Sources */,
+				3C6232832AB67D5F00EA2562 /* AirSearchService.swift in Sources */,
 				3C6232782AB66F9200EA2562 /* IQAirr.xcdatamodeld in Sources */,
+				3C6232852AB67DB000EA2562 /* AirSearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
