@@ -12,7 +12,20 @@ struct AirSearchView: View {
     
     var body: some View {
         VStack {
-            Text(vm.stateString)
+            
+            switch vm.state{
+                case .success(let search):
+                    Text("Successfully loaded data for nearest station:")
+                    Text(search.data.city)
+                case .loading:
+                    Text("Loading data...")
+                case .error(let error):
+                    Text("Encountered an error!")
+                    Text(error.localizedDescription)
+                case .idle:
+                    Text("Search for air quality data")
+            }
+            
             Button{
                 Task{
                     await vm.searchAir()
