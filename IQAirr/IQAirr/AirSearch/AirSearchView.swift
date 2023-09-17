@@ -37,9 +37,6 @@ struct AirSearchView: View {
                 }
             }
             .font(.headline)
-            FavoritedLocation(id: )
-            let favorited = favoritesvm.favorites.contains(vm.search.data.city)
-            CityView(city: vm.search.data.city, aqius: vm.search.data.current.pollution.aqius, favorited: favorited)
         }
         .onAppear{
             locationManager.locationManager.requestWhenInUseAuthorization()
