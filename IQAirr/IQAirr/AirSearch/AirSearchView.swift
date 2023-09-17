@@ -5,14 +5,16 @@
 //  Created by Kiernan Almand on 9/16/23.
 
 import SwiftUI
+import Firebase
 
 struct AirSearchView: View {
     @StateObject private var vm: AirSearchViewModel = AirSearchViewModel()
     @StateObject private var locationManager: LocationManager = LocationManager()
+    @StateObject var favoritesvm: FavoritesViewModel = FavoritesViewModel()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5.0) {
-            HStack{
+            HStack(alignment: .top){
                 switch vm.state{
                 case .success(let search):
                     Text("Successfully loaded data for nearest station: \(search.data.city)")
@@ -31,29 +33,13 @@ struct AirSearchView: View {
                         await vm.searchAir()
                     }
                 } label: {
-                    Text("Push")
+                    Text("Search")
                 }
             }
             .font(.headline)
-            
-            Text(vm.search.data.city)
-                .font(.largeTitle)
-                .bold()
-            
-            switch vm.search.data.current.pollution.aqius {
-            case 0...50:
-                Text("Good")
-            case 51...100:
-                Text("Moderate")
-            case 101...150:
-                Text("Unhealthy for Sensitive Groups")
-            case 151...200:
-                Text("Unhealthy")
-            case 201...300:
-                Text("Very Unhealthy")
-            default:
-                Text("No data for air quality")
-            }
+            FavoritedLocation(id: )
+            let favorited = favoritesvm.favorites.contains(vm.search.data.city)
+            CityView(city: vm.search.data.city, aqius: vm.search.data.current.pollution.aqius, favorited: favorited)
         }
         .onAppear{
             locationManager.locationManager.requestWhenInUseAuthorization()
@@ -68,6 +54,7 @@ struct AirSearchView: View {
         }
         
     }
+    
 }
 
 struct AirSearchView_Previews: PreviewProvider {

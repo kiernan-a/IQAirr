@@ -43,6 +43,30 @@ class FavoritesViewModel: ObservableObject {
         }
     }
     
+    public func addFavorite(favorite: FavoritedLocation) {
+        let db = Firestore.firestore()
+                
+        let recipes = db.collection("recipes")
+        
+        Task {
+            var ref: DocumentReference?
+            ref = recipes.addDocument(data: ["city": favorite.city,
+                                             "favorited": favorite.favorited,
+                                             "latitude": favorite.latitude,
+                                             "logitude": favorite.longitude,
+                                            ]) { error in
+
+                print("location added")
+                if error == nil {
+                        
+                } else {
+                    print(error?.localizedDescription ?? "oops...")
+                }
+            }
+        }
+        
+        print("recipe added, time to add steps")
+    }
     
     
     func unfavorite(city: String){

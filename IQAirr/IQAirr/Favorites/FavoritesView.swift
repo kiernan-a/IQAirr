@@ -39,6 +39,7 @@ struct FavoritesView: View {
         }
         .onAppear(perform: vm.getData)
     }
+    
 }
 
 
