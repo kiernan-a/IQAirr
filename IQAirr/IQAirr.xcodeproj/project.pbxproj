@@ -19,9 +19,12 @@
 		3C6232872AB67DE300EA2562 /* AirSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232862AB67DE300EA2562 /* AirSearchView.swift */; };
 		3C62328E2AB6903400EA2562 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62328D2AB6903400EA2562 /* UserLocation.swift */; };
 		3C6232912AB698FB00EA2562 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232902AB698FB00EA2562 /* LocationManager.swift */; };
-		3C6232932AB72C6A00EA2562 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C6232922AB72C6A00EA2562 /* GoogleService-Info-2.plist */; };
 		3C6232962AB72CDC00EA2562 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3C6232952AB72CDC00EA2562 /* FirebaseAnalytics */; };
 		3C6232982AB72CDC00EA2562 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3C6232972AB72CDC00EA2562 /* FirebaseFirestore */; };
+		3C62329C2AB7331E00EA2562 /* FavoritedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62329B2AB7331E00EA2562 /* FavoritedLocation.swift */; };
+		3C6232A02AB7337500EA2562 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62329F2AB7337500EA2562 /* FavoritesViewModel.swift */; };
+		3C6232A22AB735A900EA2562 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232A12AB735A900EA2562 /* FavoritesView.swift */; };
+		3C6232A82AB74B3F00EA2562 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C6232A72AB74B3F00EA2562 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +42,10 @@
 		3C62328D2AB6903400EA2562 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		3C62328F2AB6952600EA2562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3C6232902AB698FB00EA2562 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		3C6232922AB72C6A00EA2562 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		3C62329B2AB7331E00EA2562 /* FavoritedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedLocation.swift; sourceTree = "<group>"; };
+		3C62329F2AB7337500EA2562 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		3C6232A12AB735A900EA2562 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		3C6232A72AB74B3F00EA2562 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +80,8 @@
 		3C62326A2AB66F9100EA2562 /* IQAirr */ = {
 			isa = PBXGroup;
 			children = (
-				3C6232922AB72C6A00EA2562 /* GoogleService-Info-2.plist */,
+				3C6232A72AB74B3F00EA2562 /* GoogleService-Info.plist */,
+				3C62329E2AB7336300EA2562 /* Favorites */,
 				3C62328F2AB6952600EA2562 /* Info.plist */,
 				3C6232882AB68C3800EA2562 /* Location */,
 				3C6232812AB67D3E00EA2562 /* AirSearch */,
@@ -102,6 +109,7 @@
 			children = (
 				3C62327F2AB6799600EA2562 /* LocationSearch.swift */,
 				3C62328D2AB6903400EA2562 /* UserLocation.swift */,
+				3C62329B2AB7331E00EA2562 /* FavoritedLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,6 +130,15 @@
 				3C6232902AB698FB00EA2562 /* LocationManager.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		3C62329E2AB7336300EA2562 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				3C62329F2AB7337500EA2562 /* FavoritesViewModel.swift */,
+				3C6232A12AB735A900EA2562 /* FavoritesView.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,8 +207,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C6232732AB66F9200EA2562 /* Preview Assets.xcassets in Resources */,
+				3C6232A82AB74B3F00EA2562 /* GoogleService-Info.plist in Resources */,
 				3C6232702AB66F9200EA2562 /* Assets.xcassets in Resources */,
-				3C6232932AB72C6A00EA2562 /* GoogleService-Info-2.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,9 +221,12 @@
 			files = (
 				3C6232802AB6799600EA2562 /* LocationSearch.swift in Sources */,
 				3C6232752AB66F9200EA2562 /* Persistence.swift in Sources */,
+				3C6232A22AB735A900EA2562 /* FavoritesView.swift in Sources */,
 				3C6232912AB698FB00EA2562 /* LocationManager.swift in Sources */,
+				3C62329C2AB7331E00EA2562 /* FavoritedLocation.swift in Sources */,
 				3C62326E2AB66F9100EA2562 /* ContentView.swift in Sources */,
 				3C6232872AB67DE300EA2562 /* AirSearchView.swift in Sources */,
+				3C6232A02AB7337500EA2562 /* FavoritesViewModel.swift in Sources */,
 				3C62326C2AB66F9100EA2562 /* IQAirrApp.swift in Sources */,
 				3C6232832AB67D5F00EA2562 /* AirSearchService.swift in Sources */,
 				3C6232782AB66F9200EA2562 /* IQAirr.xcdatamodeld in Sources */,

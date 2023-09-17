@@ -19,14 +19,14 @@ struct AirSearchService {
     private let session: URLSession = URLSession.shared
     private let key = "25b6a0f1-09ee-4ec5-95df-b743f1d222d0"
     
-    public func airSearch(lat: Double, long: Double, completion: @escaping (loadingState) -> Void) async -> LocationSearch{
+    public func airSearch(lat: Double, long: Double, completion: @escaping (loadingState) -> Void) async throws -> LocationSearch{
 //    public func airSearch(lat: Double, long: Double) async -> LocationSearch{
         print("airSearch()")
         
         //URL that we are making request to, confirming that it is valid, otherwise throwing an error to indicate something wrong during GET request
         guard let url = URL(string: "http://api.airvisual.com/v2/nearest_city?lat=\(lat)&lon=\(long)&key=\(key)") else {
-            
-            fatalError("Invalid URL")
+            completion(loadingState.error(SearchError.invalidURL))
+            throw SearchError.invalidURL
         }
             
         do {
@@ -39,8 +39,17 @@ struct AirSearchService {
             return citySearch
         } catch {
             completion(loadingState.error(error))
-            fatalError("Invalid data")
+            throw SearchError.invalidData(error: error)
+//            fatalError("Invalid data")
         }
         }
     
+}
+
+extension AirSearchService {
+    enum SearchError: Error {
+        case invalidURL
+        case invalidData(error: Error)
+        
+    }
 }
