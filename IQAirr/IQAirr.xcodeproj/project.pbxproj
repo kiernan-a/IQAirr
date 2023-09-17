@@ -13,6 +13,7 @@
 		3C6232732AB66F9200EA2562 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C6232722AB66F9200EA2562 /* Preview Assets.xcassets */; };
 		3C6232752AB66F9200EA2562 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232742AB66F9200EA2562 /* Persistence.swift */; };
 		3C6232782AB66F9200EA2562 /* IQAirr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232762AB66F9200EA2562 /* IQAirr.xcdatamodeld */; };
+		3C6232802AB6799600EA2562 /* LocationSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62327F2AB6799600EA2562 /* LocationSearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		3C6232722AB66F9200EA2562 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3C6232742AB66F9200EA2562 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3C6232772AB66F9200EA2562 /* IQAirr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IQAirr.xcdatamodel; sourceTree = "<group>"; };
+		3C62327F2AB6799600EA2562 /* LocationSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		3C62326A2AB66F9100EA2562 /* IQAirr */ = {
 			isa = PBXGroup;
 			children = (
+				3C62327E2AB6795B00EA2562 /* Models */,
 				3C62326B2AB66F9100EA2562 /* IQAirrApp.swift */,
 				3C62326D2AB66F9100EA2562 /* ContentView.swift */,
 				3C62326F2AB66F9200EA2562 /* Assets.xcassets */,
@@ -71,6 +74,14 @@
 				3C6232722AB66F9200EA2562 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3C62327E2AB6795B00EA2562 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3C62327F2AB6799600EA2562 /* LocationSearch.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C6232802AB6799600EA2562 /* LocationSearch.swift in Sources */,
 				3C6232752AB66F9200EA2562 /* Persistence.swift in Sources */,
 				3C62326E2AB66F9100EA2562 /* ContentView.swift in Sources */,
 				3C62326C2AB66F9100EA2562 /* IQAirrApp.swift in Sources */,
