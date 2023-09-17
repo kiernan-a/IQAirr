@@ -8,20 +8,24 @@ import SwiftUI
 
 struct AirSearchView: View {
     @StateObject private var vm: AirSearchViewModel = AirSearchViewModel()
+    @StateObject private var locationManager: LocationManager = LocationManager()
     
     var body: some View {
         VStack {
             Text(vm.stateString)
             Button{
-                print("pushed")
                 Task{
-                    print("task")
                     await vm.searchAir()
                 }
             } label: {
                 Text("Push")
             }
             Text(vm.search.data.city)
+                .font(.largeTitle)
+                .bold()
+        }
+        .onAppear{
+            locationManager.locationManager.requestWhenInUseAuthorization()
         }
     }
 }

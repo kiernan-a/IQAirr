@@ -17,6 +17,8 @@
 		3C6232832AB67D5F00EA2562 /* AirSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232822AB67D5F00EA2562 /* AirSearchService.swift */; };
 		3C6232852AB67DB000EA2562 /* AirSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232842AB67DB000EA2562 /* AirSearchViewModel.swift */; };
 		3C6232872AB67DE300EA2562 /* AirSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232862AB67DE300EA2562 /* AirSearchView.swift */; };
+		3C62328E2AB6903400EA2562 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62328D2AB6903400EA2562 /* UserLocation.swift */; };
+		3C6232912AB698FB00EA2562 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6232902AB698FB00EA2562 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,9 @@
 		3C6232822AB67D5F00EA2562 /* AirSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchService.swift; sourceTree = "<group>"; };
 		3C6232842AB67DB000EA2562 /* AirSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchViewModel.swift; sourceTree = "<group>"; };
 		3C6232862AB67DE300EA2562 /* AirSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchView.swift; sourceTree = "<group>"; };
+		3C62328D2AB6903400EA2562 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
+		3C62328F2AB6952600EA2562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3C6232902AB698FB00EA2562 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +68,8 @@
 		3C62326A2AB66F9100EA2562 /* IQAirr */ = {
 			isa = PBXGroup;
 			children = (
+				3C62328F2AB6952600EA2562 /* Info.plist */,
+				3C6232882AB68C3800EA2562 /* Location */,
 				3C6232812AB67D3E00EA2562 /* AirSearch */,
 				3C62327E2AB6795B00EA2562 /* Models */,
 				3C62326B2AB66F9100EA2562 /* IQAirrApp.swift */,
@@ -87,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				3C62327F2AB6799600EA2562 /* LocationSearch.swift */,
+				3C62328D2AB6903400EA2562 /* UserLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,6 +107,14 @@
 				3C6232862AB67DE300EA2562 /* AirSearchView.swift */,
 			);
 			path = AirSearch;
+			sourceTree = "<group>";
+		};
+		3C6232882AB68C3800EA2562 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				3C6232902AB698FB00EA2562 /* LocationManager.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,12 +189,14 @@
 			files = (
 				3C6232802AB6799600EA2562 /* LocationSearch.swift in Sources */,
 				3C6232752AB66F9200EA2562 /* Persistence.swift in Sources */,
+				3C6232912AB698FB00EA2562 /* LocationManager.swift in Sources */,
 				3C62326E2AB66F9100EA2562 /* ContentView.swift in Sources */,
 				3C6232872AB67DE300EA2562 /* AirSearchView.swift in Sources */,
 				3C62326C2AB66F9100EA2562 /* IQAirrApp.swift in Sources */,
 				3C6232832AB67D5F00EA2562 /* AirSearchService.swift in Sources */,
 				3C6232782AB66F9200EA2562 /* IQAirr.xcdatamodeld in Sources */,
 				3C6232852AB67DB000EA2562 /* AirSearchViewModel.swift in Sources */,
+				3C62328E2AB6903400EA2562 /* UserLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +327,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"IQAirr/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IQAirr/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs you location to access nearby air quality data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -337,6 +358,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"IQAirr/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IQAirr/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs you location to access nearby air quality data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
