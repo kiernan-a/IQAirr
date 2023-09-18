@@ -10,7 +10,7 @@ import Firebase
 
 class FavoritesViewModel: ObservableObject {
     
-    @Published var favorites = [FavoritedLocation]()
+    @Published var favorites: [FavoritedLocation] = []
     
     
     func getData() {
@@ -111,6 +111,18 @@ class FavoritesViewModel: ObservableObject {
                     
                 }
             }
+    }
+    
+    func isFavorited(city: String) -> Bool {
+        getData()
+        print("Is \(city) favorited?")
+        for favorite in favorites {
+            print("Is \(city) the same as \(favorite.city)")
+            if(favorite.city == city){
+                return favorite.favorited
+            }
+        }
+        return false
     }
     
 }

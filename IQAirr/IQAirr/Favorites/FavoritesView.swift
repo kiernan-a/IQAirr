@@ -13,7 +13,7 @@ struct FavoritesView: View {
     var body: some View {
         VStack{
             List(vm.favorites){ location in
-//                if location.favorited == true {
+                if location.favorited == true {
                     HStack{
                         Text(location.city)
                         Spacer()
@@ -32,12 +32,11 @@ struct FavoritesView: View {
                         }
 
                     }
-//                } else {
-//                    Text("meow")
-//                }
+                }
             }
         }
         .onAppear(perform: vm.getData)
+        .navigationTitle("Favorites")
     }
     
 }

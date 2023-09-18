@@ -27,7 +27,7 @@ struct AirSearchView: View {
                 case .idle:
                     Text("Search for air quality data")
                 }
-                    
+                var favorited = favoritesvm.isFavorited(city: vm.search.data.city)//isFavorited(city: vm.search.data.city)
                 Button("Search") {
                     Task{
                         await vm.searchAir()
@@ -40,16 +40,9 @@ struct AirSearchView: View {
                                     latitude: vm.search.data.location.coordinates[1],
                                     longitude: vm.search.data.location.coordinates[0],
                                     favoritesvm: favoritesvm,
-                                    favorited: isFavorited(city: vm.search.data.city))
+                                    favorited: favorited)
                        }
                 
-//                Button{
-//                    Task{
-//                        await vm.searchAir()
-//                    }
-//                } label: {
-//                    Text("Search")
-//                }
             }
             .font(.headline)
         }
@@ -66,8 +59,12 @@ struct AirSearchView: View {
     }
     
     func isFavorited(city: String) -> Bool {
+        favoritesvm.getData()
+        print("Is \(city) favorited?")
         for favorite in favoritesvm.favorites {
+            print("Is \(city) the same as \(favorite.city)")
             if(favorite.city == city){
+                print("returned")
                 return true
             }
         }
