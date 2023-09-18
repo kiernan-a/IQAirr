@@ -43,17 +43,17 @@ class FavoritesViewModel: ObservableObject {
         }
     }
     
-    public func addFavorite(favorite: FavoritedLocation) {
+    public func addFavorite(city: String, latitude: Double, longitude: Double) {
         let db = Firestore.firestore()
                 
-        let recipes = db.collection("recipes")
+        let favorites = db.collection("favorites")
         
         Task {
             var ref: DocumentReference?
-            ref = recipes.addDocument(data: ["city": favorite.city,
-                                             "favorited": favorite.favorited,
-                                             "latitude": favorite.latitude,
-                                             "logitude": favorite.longitude,
+            ref = favorites.addDocument(data: ["city": city,
+                                             "favorited": true,
+                                             "latitude": latitude,
+                                             "logitude": longitude,
                                             ]) { error in
 
                 print("location added")

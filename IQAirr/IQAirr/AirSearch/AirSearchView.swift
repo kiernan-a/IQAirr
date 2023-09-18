@@ -37,6 +37,12 @@ struct AirSearchView: View {
                 }
             }
             .font(.headline)
+            CityView(city: vm.search.data.city,
+                     aqius: vm.search.data.current.pollution.aqius,
+                     latitude: vm.search.data.location.coordinates[1],
+                     longitude: vm.search.data.location.coordinates[0],
+                     favoritesvm: favoritesvm,
+                     favorited: isFavorited(city: vm.search.data.city))
         }
         .onAppear{
             locationManager.locationManager.requestWhenInUseAuthorization()
@@ -50,6 +56,15 @@ struct AirSearchView: View {
 
         }
         
+    }
+    
+    func isFavorited(city: String) -> Bool {
+        for favorite in favoritesvm.favorites {
+            if(favorite.city == city){
+                return true
+            }
+        }
+        return false
     }
     
 }
