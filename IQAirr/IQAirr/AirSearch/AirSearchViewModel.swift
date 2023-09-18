@@ -13,7 +13,7 @@ class AirSearchViewModel: ObservableObject {
     
     @Published var state: loadingState = loadingState.idle
     @Published var stateString: String = "Loading"
-    @Published var search: LocationSearch = LocationSearch(status: "", data: DataClass(city: "", state: "", country: "", location: Location(type: "", coordinates: []), current: Current(pollution: Pollution(ts: "", aqius: 400, mainus: Main(rawValue: "p1")!, aqicn: 0, maincn: Main(rawValue: "p1")!), weather: Weather(ts: "", tp: 0, pr: 0, hu: 0, ws: 0, wd: 0, ic: ""))))
+    @Published var search: LocationSearch = LocationSearch(status: "", data: DataClass(city: "", state: "", country: "", location: Location(type: "", coordinates: [0.0, 0.0]), current: Current(pollution: Pollution(ts: "", aqius: 400, mainus: Main(rawValue: "p1")!, aqicn: 0, maincn: Main(rawValue: "p1")!), weather: Weather(ts: "", tp: 0, pr: 0, hu: 0, ws: 0, wd: 0, ic: ""))))
     
     @MainActor
     func searchAir() async {

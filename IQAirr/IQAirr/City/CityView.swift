@@ -11,18 +11,26 @@ import Firebase
 struct CityView: View {
     var city: String
     var aqius: Int
+    var latitude: Double
+    var longitude: Double
+    var favoritesvm: FavoritesViewModel
     @State var favorited: Bool
     
     var body: some View {
+        
         HStack(alignment: .top){
             Text(city)
                 .font(.largeTitle)
                 .bold()
+            
+            Spacer()
+            
             Button {
+                favorited.toggle()
                 if favorited{
-                    unfavorite(city: city)
+                    favorite(city: city, latitude: latitude, longitude: longitude)
                 }else{
-                    favorite(city: city)
+                    unfavorite(city: city)
                 }
             } label: {
                 if favorited {
@@ -32,6 +40,7 @@ struct CityView: View {
                 }
             }
         }
+        
         switch aqius {
         case 0...50:
             Text("Good")
@@ -46,8 +55,8 @@ struct CityView: View {
         default:
             Text("No data for air quality")
         }
+        
     }
-    
     func unfavorite(city: String){
         let db = Firestore.firestore()
 
@@ -70,9 +79,9 @@ struct CityView: View {
             }
     }
     
-    func favorite(city: String){
+    func favorite(city: String, latitude: Double, longitude: Double){
         let db = Firestore.firestore()
-
+        
         db.collection("favorites")
             .whereField("city", isEqualTo: city)
             .getDocuments() { docs, error in
@@ -81,7 +90,8 @@ struct CityView: View {
                 } else {
                     DispatchQueue.main.async {
                         guard let document = docs?.documents.first else {
-                           fatalError("no documents")
+                            favoritesvm.addFavorite(city: city, latitude: latitude, longitude: longitude)
+                            return
                         }
                         document.reference.updateData([
                             "favorited": true
@@ -90,11 +100,12 @@ struct CityView: View {
                     
                 }
             }
+        }
     }
-}
+
 
 struct CityView_Previews: PreviewProvider {
     static var previews: some View {
-        CityView(city: "", aqius: 400, favorited: false)
+        CityView(city: "", aqius: 400, latitude: 0.0, longitude: 0.0, favoritesvm: FavoritesViewModel(), favorited: false)
     }
 }
