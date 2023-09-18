@@ -11,6 +11,7 @@ struct AirSearchView: View {
     @StateObject private var vm: AirSearchViewModel = AirSearchViewModel()
     @StateObject private var locationManager: LocationManager = LocationManager()
     @StateObject var favoritesvm: FavoritesViewModel = FavoritesViewModel()
+    @State var showingCityView = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5.0) {
@@ -27,22 +28,30 @@ struct AirSearchView: View {
                     Text("Search for air quality data")
                 }
                     
-                
-                Button{
+                Button("Search") {
                     Task{
                         await vm.searchAir()
                     }
-                } label: {
-                    Text("Search")
+                    showingCityView.toggle()
                 }
+                       .sheet(isPresented: $showingCityView) {
+                           CityView(city: vm.search.data.city,
+                                    aqius: vm.search.data.current.pollution.aqius,
+                                    latitude: vm.search.data.location.coordinates[1],
+                                    longitude: vm.search.data.location.coordinates[0],
+                                    favoritesvm: favoritesvm,
+                                    favorited: isFavorited(city: vm.search.data.city))
+                       }
+                
+//                Button{
+//                    Task{
+//                        await vm.searchAir()
+//                    }
+//                } label: {
+//                    Text("Search")
+//                }
             }
             .font(.headline)
-            CityView(city: vm.search.data.city,
-                     aqius: vm.search.data.current.pollution.aqius,
-                     latitude: vm.search.data.location.coordinates[1],
-                     longitude: vm.search.data.location.coordinates[0],
-                     favoritesvm: favoritesvm,
-                     favorited: isFavorited(city: vm.search.data.city))
         }
         .onAppear{
             locationManager.locationManager.requestWhenInUseAuthorization()
@@ -53,9 +62,7 @@ struct AirSearchView: View {
             NavigationLink(destination: FavoritesView()) {
                 Image(systemName: "heart.fill")
             }
-
         }
-        
     }
     
     func isFavorited(city: String) -> Bool {
